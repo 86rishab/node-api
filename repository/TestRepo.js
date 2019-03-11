@@ -4,7 +4,7 @@ var EmpDetails  = require('../db/models/empdetails');
 module.exports = {
     saveEmpDetails: function(empdetails,callback) {
        
-        console.log(" inside saveEmpDetails>>> ");
+        console.log(">>>  inside saveEmpDetails ");
         
           empdetails.save(function(err) {
             callback(err);

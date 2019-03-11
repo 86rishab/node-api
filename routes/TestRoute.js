@@ -25,7 +25,7 @@ router.get('/', function(req, res) {
 
 
 router.post('/addEmpDetails', jsonParser, function(req, res) {
-	console.log("Inside  addEmpDetails flow >>> ");
+	console.log(">>> Inside  addEmpDetails flow");
 	var errHandling = function (err){
 		if(err!==null && err.errors){
 		res.status(400);
