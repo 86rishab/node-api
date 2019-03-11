@@ -25,12 +25,13 @@ router.get('/', function(req, res) {
 
 
 router.post('/addEmpDetails', jsonParser, function(req, res) {
-	console.log("name>>> "+ req.body.name);
+	console.log("Inside  addEmpDetails flow >>> ");
 	var errHandling = function (err){
 		if(err!==null && err.errors){
+		res.status(400);
 		res.send(err);
 		}else{
-			res.json("user created!");
+			res.json({ message: 'Successfully added !!' });
 		}
 	}
 	//creating empdetails object
@@ -41,7 +42,7 @@ router.post('/addEmpDetails', jsonParser, function(req, res) {
 	empdetails.address.addressLine1 = req.body.address.addressLine1;
 	empdetails.address.state = req.body.address.state;
 	empdetails.address.country = req.body.address.country;
-	console.log("name>>> "+ req.body.address.addressLine1);
+	console.log(">>> Employee object created from request");
 	empRepo.saveEmpDetails(empdetails,errHandling);
 		
 });
